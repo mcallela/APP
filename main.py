@@ -1,29 +1,29 @@
 # ------------------------------------------------- ----- 
 # ---------------------- main.py ---------------- --- - 
 # --------------------------------------------- - ------- 
-#from  PyQt5.QtWidgets  import * 
+from  PyQt5.QtWidgets  import* 
 from  PyQt5.uic  import  loadUi
 
 from  matplotlib.backends.backend_qt5agg  import  ( NavigationToolbar2QT  as  NavigationToolbar )
 
 import  numpy   as  np 
-import  aleatorio
+import  random
      
 class  MatplotlibWidget ( QMainWindow ):
     
-    def  __init__ ( self):
+    def __init__ ( self):
         
         QMainWindow . __init__ ( self )
 
-        loadUi ( "qt_designer.ui" , self )
+        loadUi ( "DINAMITAGUI.ui" , self )
 
         self.setWindowTitle ( "Ejemplo de GUI de PyQt5 y Matplotlib" )
 
-        self.pushButton_generate_random_signal.clicked.connect(self.update_graph)
+        self.pushButton_generar.clicked.connect(self.update_graph)
         self.addToolBar (NavigationToolbar(self.MplWidget.canvas,self))
 
 
-    def  update_graph ( self ):
+    def update_graph ( self ):
 
         fs  =  500 
         f  =  random . randint ( 1 ,  100 ) 
@@ -37,12 +37,12 @@ class  MatplotlibWidget ( QMainWindow ):
         self. MplWidget . canvas. axes . clear () 
         self . MplWidget . canvas . axes . plot ( t ,  cosinus_signal ) 
         self . MplWidget . canvas . axes . plot ( t ,  sinus_signal ) 
-        self . MplWidget . canvas . axes . leyenda (( 'cosinus' ,  'sinus' ),loc = 'superior derecha' ) 
+        self . MplWidget . canvas . axes . legend(( 'cosinus' ,  'sinus' ),loc = 'superior derecha' ) 
         self . MplWidget . canvas . axes . set_title ( ' Cosinus - Sinus Signal' ) 
-        self . MplWidget . canvas . plot()
+        self . MplWidget . canvas . draw()
         
 
-aplicación  =  QApplication([]) 
-ventana  =  MatplotlibWidget() 
-ventana . show() 
-aplicación . exec_()
+app =  QApplication([]) 
+windows  =  MatplotlibWidget() 
+windows . show() 
+app . exec_()

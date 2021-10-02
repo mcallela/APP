@@ -1,23 +1,23 @@
 # ------------------------------------------------- ----- 
 # --------------------- mplwidget.py -------------------- 
 # ------------------------------------------------- --------------- ---- 
-desde  PyQt5.QtWidgets  import *
+from  PyQt5.QtWidgets  import*
 
-de  matplotlib.backends.backend_qt5agg  importar  FigureCanvas
+from  matplotlib.backends.backend_qt5agg  import  FigureCanvas
 
-de  matplotlib.figure  figura de importación 
+from  matplotlib.figure  import Figure
 
     
-clase  MplWidget ( QWidget ):
+class  MplWidget ( QWidget ):
     
     def  __init__ ( self ,  parent  =  None ):
 
-        QWidget . __init__ ( yo ,  padre )
+        QWidget.__init__(self ,  parent )
         
-        yo . lienzo  =  FigureCanvas ( Figura ())
+        self . canvas =  FigureCanvas ( Figure())
         
         vertical_layout  =  QVBoxLayout () 
-        vertical_layout . addWidget ( auto . lienzo )
+        vertical_layout . addWidget ( self . canvas )
         
-        yo . lienzo . ejes  =  self . lienzo . figura . add_subplot ( 111 ) 
+        self . canvas . axes  =  self . canvas. figure. add_subplot ( 111 ) 
         self . setLayout ( vertical_layout )
