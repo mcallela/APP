@@ -37,7 +37,7 @@ class  MatplotlibWidget ( QMainWindow ):
         self. MplWidget . canvas. axes . clear () 
         self . MplWidget . canvas . axes . plot ( t ,  cosinus_signal ) 
         self . MplWidget . canvas . axes . plot ( t ,  sinus_signal ) 
-        self . MplWidget . canvas . axes . legend(( 'cosinus' ,  'sinus' ),loc = 'superior derecha' ) 
+        self . MplWidget . canvas . axes . legend(( 'cosinus' ,  'sinus' ),loc = 'upper right' ) 
         self . MplWidget . canvas . axes . set_title ( ' Cosinus - Sinus Signal' ) 
         self . MplWidget . canvas . draw()
         
